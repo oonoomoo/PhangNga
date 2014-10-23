@@ -35,7 +35,23 @@
 	<script type="text/javascript" src="js/scripts.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
+   <script>
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange=function(){
+		if(xmlhttp.readyState==4 && xmlhttp.status==200){ 
+			document.getElementById("result").innerHTML = xmlhttp.responseText;
+			
+		}
+	}
+
+	var url="loadtext.jsp";
+	xmlhttp.open("GET",url,true);
+	xmlhttp.send();
+</script>
+
 <body>
+
 <div class="page">
 		<div class="header">
 			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo" width="148px" height="131px"></a>
@@ -81,10 +97,12 @@
 				<div class="featured">
 					<img src="images/featured.jpg" alt="" height="354" width="864">
 					<div>
-					  <div></div>
+					  <div></div>  
 					</div>
+						 
+						
 			  </div>
-				<div class="section"></div>
+				<div class="section"><marquee id="result"></marquee></div>
 				<div>
 					<ul>
 					  <li>
@@ -133,5 +151,6 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>
